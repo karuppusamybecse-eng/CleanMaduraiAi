@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanMadurai AI | Smart Waste Management</title>
+    <meta name="description" content="AI-powered waste classification and reporting for a cleaner Madurai.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="ph ph-leaf text-gradient"></i>
+                <span>CleanMadurai <span class="text-gradient">AI</span></span>
+            </div>
+            <div class="nav-links">
+                <button id="navReportBtn" class="nav-btn active">Report</button>
+                <button id="navAdminBtn" class="nav-btn">Admin Panel</button>
+            </div>
+            <div class="auth-section">
+                <!-- Logged Out View -->
+                <button id="loginBtn" class="btn btn-outline btn-glass">
+                    <i class="ph ph-google-logo"></i>
+                    Login
+                </button>
+                
+                <!-- Logged In View -->
+                <div id="userProfile" class="user-profile hidden">
+                    <img id="userAvatar" src="" alt="User" class="avatar">
+                    <div class="user-info">
+                        <span id="userName" class="user-name">User</span>
+                        <button id="logoutBtn" class="link-btn">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Welcome Screen (Not Logged In) -->
+        <section id="welcomeScreen" class="view-section active">
+            <div class="hero">
+                <div class="hero-content blur-glass">
+                    <div class="badge">AI-Powered Validation</div>
+                    <h1>Keep Madurai <span class="text-gradient">Clean</span> & <span class="text-gradient">Green</span></h1>
+                    <p>Report waste responsibly. Our AI automatically classifies the waste type, and local authorities handle the rest.</p>
+                    <button id="heroLoginBtn" class="btn btn-primary btn-large glow">
+                        Get Started <i class="ph-bold ph-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card ai-card">
+                        <i class="ph-fill ph-check-circle success"></i>
+                        <span>Organic Waste Identified</span>
+                        <div class="progress-bar"><div class="fill" style="width: 95%"></div></div>
+                    </div>
+                    <div class="floating-card location-card">
+                        <i class="ph-fill ph-map-pin primary"></i>
+                        <span>Meenakshi Amman Temple St.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Report Waste Screen -->
+        <section id="reportScreen" class="view-section hidden">
+            <div class="header-text">
+                <h2>Report Waste Event</h2>
+                <p>Upload a photo of the waste layout to let AI classify it.</p>
+            </div>
+
+            <div class="report-grid">
+                <!-- Upload Area -->
+                <div class="glass-panel upload-card">
+                    <input type="file" id="imageInput" accept="image/*" class="hidden-input">
+                    
+                    <div id="uploadPlaceholder" class="upload-placeholder">
+                        <div class="upload-icon">
+                            <i class="ph ph-camera-plus"></i>
+                        </div>
+                        <h3>Upload Waste Image</h3>
+                        <p>Drag and drop or click to browse</p>
+                        <span class="text-xs text-muted">Supports JPG, PNG</span>
+                    </div>
+
+                    <div id="imagePreviewContainer" class="image-preview-container hidden">
+                        <img id="imagePreview" alt="Waste preview" />
+                        <button id="removeImageBtn" class="btn-icon danger over-image">
+                            <i class="ph ph-x"></i>
+                        </button>
+                        
+                        <!-- AI Analysis Overlay -->
+                        <div id="analysisOverlay" class="analysis-overlay hidden">
+                            <div class="scanner-line"></div>
+                            <div class="analysis-content">
+                                <i class="ph ph-brain icon-spin"></i>
+                                <span>AI is analyzing...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Area -->
+                <div class="glass-panel form-card">
+                    <div class="form-group">
+                        <label>AI Classification Result</label>
+                        <div id="classificationResult" class="classification-box empty">
+                            <i class="ph ph-magic-wand"></i> Upload an image to analyze
+                        </div>
+                        <!-- Fallback / Manual Override -->
+                        <select id="manualCategory" class="input hidden mt-2">
+                            <option value="">Select Category manually</option>
+                            <option value="Plastic">Plastic</option>
+                            <option value="Organic">Organic</option>
+                            <option value="Metal">Metal</option>
+                            <option value="E-waste">E-waste</option>
+                            <option value="Mixed Waste">Mixed Waste</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Location</label>
+                        <div class="input-with-icon">
+                            <i class="ph ph-map-pin"></i>
+                            <input type="text" id="locationInput" class="input" placeholder="Fetching location..." readonly>
+                            <button id="refreshLocationBtn" class="btn-icon btn-small text-primary"><i class="ph ph-arrows-clockwise"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Notes (Optional)</label>
+                        <textarea id="notesInput" class="input textarea" placeholder="Describe the severity or exact landmark..."></textarea>
+                    </div>
+
+                    <button id="submitReportBtn" class="btn btn-primary w-full glow mt-4" disabled>
+                        Submit Report <i class="ph-bold ph-paper-plane-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Screen -->
+        <section id="adminScreen" class="view-section hidden">
+            <div class="admin-header">
+                <div>
+                    <h2>Admin Dashboard</h2>
+                    <p>Overview of reported waste in Madurai</p>
+                </div>
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <span class="stat-value" id="statTotal">0</span>
+                        <span class="stat-label">Total Reports</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="statPending">0</span>
+                        <span class="stat-label">Pending</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-panel table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Category</th>
+                            <th>Location</th>
+                            <th>Date & Time</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reportsTableBody">
+                        <!-- Data will be populated here -->
+                    </tbody>
+                </table>
+                <div id="emptyState" class="empty-state hidden">
+                    <i class="ph ph-clipboard-text"></i>
+                    <p>No reports found.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Success Modal -->
+        <div id="successModal" class="modal hidden">
+            <div class="modal-content blur-glass text-center">
+                <div class="success-icon-large">
+                    <i class="ph-fill ph-check-circle"></i>
+                </div>
+                <h2>Report Submitted!</h2>
+                <p>Thank you for helping keep Madurai clean. The authorities have been notified.</p>
+                <button id="closeModalBtn" class="btn btn-primary mt-4 w-full">Continue</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">
+        <i class="ph ph-info toast-icon"></i>
+        <span id="toastMsg">Message</span>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

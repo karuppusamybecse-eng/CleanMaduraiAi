@@ -1,0 +1,49 @@
+[debug] [2026-02-27T18:30:03.550Z] ----------------------------------------------------------------------
+[debug] [2026-02-27T18:30:03.554Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\karuppusamy\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2026-02-27T18:30:03.554Z] CLI Version:   15.8.0
+[debug] [2026-02-27T18:30:03.554Z] Platform:      win32
+[debug] [2026-02-27T18:30:03.554Z] Node Version:  v24.14.0
+[debug] [2026-02-27T18:30:03.554Z] Time:          Sat Feb 28 2026 00:00:03 GMT+0530 (India Standard Time)
+[debug] [2026-02-27T18:30:03.554Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-27T18:30:05.273Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-27T18:30:05.274Z] > authorizing via signed-in user (karuppusamybecse@gmail.com)
+[debug] [2026-02-27T18:30:05.274Z] [iam] checking project cleanmadurai-ai-f265d for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-02-27T18:30:05.276Z] Checked if tokens are valid: true, expires at: 1772219867998
+[debug] [2026-02-27T18:30:05.276Z] Checked if tokens are valid: true, expires at: 1772219867998
+[debug] [2026-02-27T18:30:05.277Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/cleanmadurai-ai-f265d:testIamPermissions [none]
+[debug] [2026-02-27T18:30:05.277Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/cleanmadurai-ai-f265d:testIamPermissions  x-goog-user-project=cleanmadurai-ai-f265d
+[debug] [2026-02-27T18:30:05.277Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cleanmadurai-ai-f265d:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-02-27T18:30:06.946Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/cleanmadurai-ai-f265d:testIamPermissions 200
+[debug] [2026-02-27T18:30:06.946Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cleanmadurai-ai-f265d:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-02-27T18:30:06.947Z] Checked if tokens are valid: true, expires at: 1772219867998
+[debug] [2026-02-27T18:30:06.947Z] Checked if tokens are valid: true, expires at: 1772219867998
+[debug] [2026-02-27T18:30:06.948Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cleanmadurai-ai-f265d [none]
+[debug] [2026-02-27T18:30:07.723Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cleanmadurai-ai-f265d 200
+[debug] [2026-02-27T18:30:07.724Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cleanmadurai-ai-f265d {"projectId":"cleanmadurai-ai-f265d","projectNumber":"480307013300","displayName":"cleanmadurai-ai","name":"projects/cleanmadurai-ai-f265d","resources":{"hostingSite":"cleanmadurai-ai-f265d"},"state":"ACTIVE","etag":"1_32be8eb9-bcf0-48e4-aabf-bf7b0dc7c0fb"}
+[info] 
+[info] === Deploying to 'cleanmadurai-ai-f265d'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2026-02-27T18:30:07.733Z] Checked if tokens are valid: true, expires at: 1772219867998
+[debug] [2026-02-27T18:30:07.733Z] Checked if tokens are valid: true, expires at: 1772219867998
+[debug] [2026-02-27T18:30:07.733Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cleanmadurai-ai-f265d/versions [none]
+[debug] [2026-02-27T18:30:07.733Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cleanmadurai-ai-f265d/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2026-02-27T18:30:10.159Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cleanmadurai-ai-f265d/versions 200
+[debug] [2026-02-27T18:30:10.159Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cleanmadurai-ai-f265d/versions {"name":"projects/480307013300/sites/cleanmadurai-ai-f265d/versions/7a85078cdc42b2d9","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[cleanmadurai-ai-f265d]: beginning deploy... 
+[info] i  hosting[cleanmadurai-ai-f265d]: found 77344 files in . 
+[debug] [2026-02-27T18:30:18.376Z] [hosting] uploading with 200 concurrency
+[debug] [2026-02-27T18:30:18.377Z] [hosting] hash cache [] not populated
+[debug] [2026-02-27T18:30:18.399Z] Error: EBUSY: resource busy or locked, open 'C:\Users\karuppusamy\ntuser.dat.LOG2'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-02-27T18:30:18.400Z] Error: EBUSY: resource busy or locked, open 'C:\Users\karuppusamy\ntuser.dat.LOG1'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-02-27T18:30:18.401Z] Error: EBUSY: resource busy or locked, open 'C:\Users\karuppusamy\NTUSER.DAT'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-02-27T18:30:18.406Z] Error: EISDIR: illegal operation on a directory, read
+[error] 
+[error] Error: An unexpected error has occurred.
